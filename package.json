@@ -1,0 +1,59 @@
+{
+  "version": "1.0.25",
+  "description": "Linkd Model Context Protocol Server",
+  "name": "linkd-mcp",
+  "main": "./dist/server.js",
+  "bin": {
+    "linkd-mcp": "dist/server.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc && node -e \"require('fs').chmodSync('dist/server.js', '755')\"",
+    "start": "node dist/server.js --sse",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write .",
+    "build-resources": "node --loader ts-node/esm scripts/build_resources.ts && cp summarized.json src/resources/static/data/summarized.json && rm summarized.json && rm static_data.json",
+    "prepare": "npm run build",
+    "publish": "rm -rf dist && rm -rf node_modules && npm i && npm run build && npm publish"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.0",
+    "ajv": "^8.17.1",
+    "axios": "^1.8.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^16.11.7",
+    "openai": "^4.87.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.5.2"
+  },
+  "keywords": [
+    "mcp",
+    "linkd",
+    "web-scraping",
+    "crawler",
+    "content-extraction"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/automcp/linkd-mcp.git"
+  },
+  "types": "./dist/server.d.ts",
+  "bugs": {
+    "url": "https://github.com/automcp/linkd-mcp/issues"
+  },
+  "homepage": "https://github.com/automcp/linkd-mcp#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "ISC"
+}
