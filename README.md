@@ -1,9 +1,10 @@
 # Linkd MCP Server
-[![smithery badge](https://smithery.ai/badge/@automcp/linkd)](https://smithery.ai/server/@automcp/linkd)
 
-This is Linkd's Model Context Protocol (MCP) Server. It provides tools to search and interact with LinkedIn data in a privacy-preserving way.
+This is an unofficial Model Context Protocol (MCP) Server for Linkd..
 
-More information about Linkd can be found at [automcp.app](https://automcp.app).
+More information about automcp can be found at [automcp.app](https://automcp.app).
+
+For detailed API documentation and usage examples, visit the [official Linkd documentation](https://docs.linkd.inc/).
 
 More information about the Model Context Protocol can be found [here](https://modelcontextprotocol.io/introduction).
 
@@ -56,30 +57,6 @@ Add to your `./codeium/windsurf/model_config.json` like this:
 }
 ```
 
-### Development
-
-For development purposes, you can run the server directly from the source code.
-
-1. Clone the repository:
-
-   ```sh
-   git clone git@github.com:automcp/linkd.git linkd-mcp
-   cd linkd-mcp
-   ```
-
-2. Install dependencies:
-
-   ```sh
-   npm install # or yarn install
-   npm run build
-   ```
-
-3. Run the server:
-
-   ```sh
-   node dist/server.js
-   ```
-
 ## Claude Desktop app
 This is an example config for the Linkd MCP server for the Claude Desktop client.
 
@@ -99,18 +76,14 @@ This is an example config for the Linkd MCP server for the Claude Desktop client
 
 ## Tools
 * `search_for_users` - Search for LinkedIn users with filters like query, school, and match threshold
+* `search_for_companies` - Search for companies on Linkd using filters like query and match threshold
+* `enrich_linkedin` - Retrieves detailed profile information for a specific LinkedIn URL (1 credit per lookup)
+* `retrieve_contacts` - Retrieves email addresses and phone numbers for a LinkedIn profile (1 credit per lookup)
+* `scrape_linkedin` - Retrieves detailed profile data and posts with comments from a LinkedIn profile URL (2 credits per request)
+* `research_profile` - Research a profile using email or phone number
+* `initiate_deep_research` - Start a deep research job for comprehensive LinkedIn data gathering
+* `check_deep_research_status` - Check the status of an ongoing deep research job
 
-### Installing via Smithery
-
-To install Linkd MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@automcp/linkd):
-
-```bash
-npx -y @smithery/cli install @automcp/linkd --client claude
-```
-
-## Resources
-
-The server provides documentation about Linkd through the `resources` methods. Any client which can do discovery over resources has access to it.
 
 ## License
 
