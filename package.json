@@ -13,14 +13,14 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('dist/server.js', '755')\"",
+    "build": "rm -rf dist && tsc && node -e \"require('fs').chmodSync('dist/server.js', '755')\"",
     "start": "node dist/server.js --sse",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier --write .",
     "build-resources": "node --loader ts-node/esm scripts/build_resources.ts && cp summarized.json src/resources/static/data/summarized.json && rm summarized.json && rm static_data.json",
-    "prepare": "npm install --include=dev && npm run build",
-    "publish": "npm install --include=dev && npm run build && npm publish"
+    "prepare": "npm run build",
+    "publish": "rm -rf dist && rm -rf node_modules && npm i && npm run build && npm publish"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.6.0",
