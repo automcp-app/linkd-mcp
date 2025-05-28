@@ -1,4 +1,5 @@
 # Linkd MCP Server
+[![smithery badge](https://smithery.ai/badge/@automcp-app/linkd-mcp)](https://smithery.ai/server/@automcp-app/linkd-mcp)
 
 This is an unofficial Model Context Protocol (MCP) Server for Linkd..
 
@@ -17,6 +18,14 @@ More information about the Model Context Protocol can be found [here](https://mo
 - [License](#license)
 
 ## Installation
+
+### Installing via Smithery
+
+To install linkd-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@automcp-app/linkd-mcp):
+
+```bash
+npx -y @smithery/cli install @automcp-app/linkd-mcp --client claude
+```
 
 ### Manual Installation
 To install the server, run:
