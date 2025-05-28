@@ -1,0 +1,42 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => {
+      const args = [];
+      if (config.sse) {
+        args.push("--sse");
+      }
+      return {
+        command: "node",
+        args: ["dist/server.js", ...args],
+        env: {
+          LINKD_API_KEY: config.linkdApiKey,
+          ...(config.sse && config.ssePort ? { SSE_PORT: String(config.ssePort) } : {})
+        }
+      };
+    }
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - linkdApiKey
+    properties:
+      linkdApiKey:
+        type: string
+        description: Linkd API key for authentication
+      sse:
+        type: boolean
+        default: false
+        description: Enable SSE (HTTP) transport instead of stdio
+      ssePort:
+        type: number
+        default: 3001
+        description: Port for SSE HTTP server (ignored if SSE disabled)
+  exampleConfig:
+    linkdApiKey: YOUR_LINKD_API_KEY
+    sse: false
+    ssePort: 3001
