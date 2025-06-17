@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/automcp-app-linkd-mcp-badge.png)](https://mseep.ai/app/automcp-app-linkd-mcp)
+
 # Linkd MCP Server
 
 This is an unofficial Model Context Protocol (MCP) Server for Linkd..
